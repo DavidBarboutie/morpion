@@ -11,7 +11,7 @@ namespace Morpion
         // Fonction permettant l'affichage du Morpion
         public static void AfficherMorpion(int j, int k)
         {
-
+        	Console.Clear();
             for (j=0; j < grille.GetLength(0); j++)
             {
                 Console.Write("\n|==|==|==|\n");
@@ -37,12 +37,12 @@ namespace Morpion
         public static bool AJouer(int j, int k, int joueur)
         {
         	if (grille[j,k] == 10) {
-        		return false;
+        		grille[j,k] = joueur;
+        		return true;
         	}
         	else
         	{
-        	grille[j,k] = joueur;
-        	return true;
+        	return false;
       		}
         }
 
@@ -53,7 +53,10 @@ namespace Morpion
         	for (l=1; l < grille.GetLength(0); l++)
         	{
         		for (c = 1; c < grille.GetLength(1); c++) {
-        			break;
+        			if (grille[l-1,c] == grille[l,c] && grille[l,c] == grille[l+1,c])
+        			{
+        				return true;
+        			}
         		}
         	}
             return false;
@@ -93,6 +96,7 @@ namespace Morpion
 							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 10); // Permet de manipuler le curseur dans la fenêtre 
 							c = int.Parse(Console.ReadLine()) - 1;
 							
+							AJouer(l,c,joueur);
 							AfficherMorpion(l,c);
 
 						}
@@ -101,7 +105,13 @@ namespace Morpion
 							Console.WriteLine(e.ToString());
 						}
 						
-						// Changement de joueur
+						if (joueur == 1)
+						{
+							joueur = 2;
+						}
+						else{
+							joueur = 1;
+						}
 						// A compléter 
 
 					}; // Fin TQ

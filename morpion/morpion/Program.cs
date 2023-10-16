@@ -11,7 +11,21 @@ namespace Morpion
         // Fonction permettant l'affichage du Morpion
         public static void AfficherMorpion(int j, int k)
         {
-            // A compléter 
+
+            for (j=0; j < grille.GetLength(0); j++)
+            {
+                Console.Write("\n|==|==|==|\n");
+                Console.Write("|");
+                for (k=0; k < grille.GetLength(1); k++)
+                {
+                	Console.Write(grille[j,k]);
+                    Console.Write("|");
+                }
+                
+            }
+            Console.Write("\n|==|==|==|");
+
+
         }
 
         // Fonction permettant de changer
@@ -22,15 +36,26 @@ namespace Morpion
         // n'est pas déjà jouée
         public static bool AJouer(int j, int k, int joueur)
         {
-            // A compléter 
-            return false;
+        	if (grille[j,k] == 10) {
+        		return false;
+        	}
+        	else
+        	{
+        	grille[j,k] = joueur;
+        	return true;
+      		}
         }
 
         // Fonction permettant de vérifier
         // si un joueur à gagner
         public static bool Gagner(int l, int c, int joueur)
         {
-            // A compléter 
+        	for (l=1; l < grille.GetLength(0); l++)
+        	{
+        		for (c = 1; c < grille.GetLength(1); c++) {
+        			break;
+        		}
+        	}
             return false;
         }
 
@@ -56,7 +81,7 @@ namespace Morpion
 					while(!gagner && essais != 9)
 					{
 
-						// A compléter 
+						essais++; 
 						try
 						{
 							Console.WriteLine("Ligne   =    ");
@@ -67,15 +92,15 @@ namespace Morpion
 							// Peut changer en fonction de comment vous avez fait votre tableau.
 							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 10); // Permet de manipuler le curseur dans la fenêtre 
 							c = int.Parse(Console.ReadLine()) - 1;
-
-							// A compléter 
+							
+							AfficherMorpion(l,c);
 
 						}
 						catch (Exception e)
 						{
 							Console.WriteLine(e.ToString());
 						}
-
+						
 						// Changement de joueur
 						// A compléter 
 

@@ -1,0 +1,5 @@
+U:\Espace privé\ap\morpion\morpion\morpion\bin\Debug\morpion.exe
+U:\Espace privé\ap\morpion\morpion\morpion\bin\Debug\morpion.pdb
+U:\Espace privé\ap\morpion\morpion\morpion\obj\Debug\morpion.csprojResolveAssemblyReference.cache
+U:\Espace privé\ap\morpion\morpion\morpion\obj\Debug\morpion.exe
+U:\Espace privé\ap\morpion\morpion\morpion\obj\Debug\morpion.pdb
